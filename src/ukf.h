@@ -74,6 +74,12 @@ public:
   ///* the current NIS for laser
   double NIS_laser_;
 
+  ///* measurement noise covariance matrix for lidar
+  MatrixXd R_Lidar;
+
+  ///* measurement noise covariance matrix for radar
+  MatrixXd R_radar;
+
   /**
    * Constructor
    */
@@ -83,6 +89,8 @@ public:
    * Destructor
    */
   virtual ~UKF();
+
+  void NormalizeAngle(double& phi);
 
   /**
    * ProcessMeasurement
